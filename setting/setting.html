@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Settings</title>
+    <link rel="stylesheet" href="../styles/general.css" />
+    <link rel="stylesheet" href="./setting.css" />
+    <link rel="stylesheet" href="../styles/queries.css" />
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@latest/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule=""
+      src="https://unpkg.com/ionicons@latest/dist/ionicons/ionicons.js"
+    ></script>
+    <script defer src="./setting.js"></script>
+  </head>
+  <body>
+    <section class="section--settings">
+      <div class="container grid">
+        <header class="header tertiary--1">
+          <button class="btn btn--person">
+            <ion-icon name="person"></ion-icon>
+          </button>
+
+          <a class="btn btn--overview active-btn" href="#">
+            <ion-icon name="home"></ion-icon>
+            <span>Account overview</span>
+          </a>
+
+          <a class="btn btn--prof-edit" href="#">
+            <ion-icon name="pencil"></ion-icon>
+            <span>Edit profile</span>
+          </a>
+
+          <a class="btn btn--password" href="#">
+            <ion-icon name="lock-closed"></ion-icon>
+            <span>Change password</span>
+          </a>
+
+          <a class="btn btn--notification" href="#">
+            <ion-icon name="notifications"></ion-icon>
+            <span>Notification settings</span>
+          </a>
+
+          <a class="btn btn--privacy" href="#">
+            <ion-icon name="lock-closed"></ion-icon>
+            <span>Privacy settings</span>
+          </a>
+
+          <a class="btn btn--card" href="#">
+            <ion-icon name="card"></ion-icon>
+            <span>Saved payment cards</span>
+          </a>
+        </header>
+
+        <div class="menu hidden">
+          <ion-icon name="menu-outline" class="menu-open hidden"></ion-icon>
+          <ion-icon name="close-outline" class="menu-close"></ion-icon>
+        </div>
+
+        <!-- PART --1 -->
+        <div class="changing--field account-overview">
+          <h1 class="primary-text">Account overview</h1>
+
+          <h2 class="secondary-text">Profile</h2>
+          <ul class="profile-list tertiary--1">
+            <li class="profile-data">
+              <p>Username</p>
+              <p>joe690</p>
+            </li>
+            <li class="profile-data">
+              <p>Email</p>
+              <p>dummy@mail.com</p>
+            </li>
+            <li class="profile-data">
+              <p>Date of birth</p>
+              <p>July 19, 2023</p>
+            </li>
+            <li class="profile-data">
+              <p>Country or region</p>
+              <p>Canada</p>
+            </li>
+          </ul>
+          <a class="btn btn--prof-edit tertiary--1" href="#">Edit profile</a>
+
+          <h2 class="secondary-text">Your plan</h2>
+
+          <div class="plan-card">
+            <div class="card-top">
+              <h2 class="tertiary--4">Free plan</h2>
+            </div>
+            <div class="card-bottom tertiary--3">
+              <p>Play music in shufffle mode only, with ads</p>
+              <h2 class="secondary-text">Free</h2>
+            </div>
+          </div>
+
+          <a class="btn btn--premium tertiary--1" href="#">Join Premium</a>
+
+          <h2 class="secondary-text">Sign out everywhere</h2>
+
+          <p class="tertiary--1 profile-text">
+            This logs you out of Spotify everywhere you’re logged in, including
+            the mobile, tablet, web player and desktop apps. This doesn't
+            include partner devices (e.g. speakers, games consoles, and TVs), so
+            for those <a href="#">go to your apps page</a> and choose REMOVE
+            ACCESS.
+          </p>
+
+          <p class="tertiary--1 profile-text last-profile-text">
+            Note: It can take up to 1 hour for sign out to take effect on the
+            web player.
+          </p>
+
+          <a class="btn btn--sign-out tertiary--1" href="#"
+            >Sign out everywhere
+          </a>
+        </div>
+
+        <!-- PART --2 -->
+        <div class="changing--field profile-edit hidden">
+          <h1 class="primary-text">Edit profile</h1>
+
+          <form action="Post" class="form tertiary--1">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              placeholder="dummy@mail.com"
+              name="email"
+              class="email"
+            />
+
+            <label for="password">Password</label>
+            <input
+              type="password"
+              disabled
+              name="password"
+              class="password pass-disabled"
+            />
+
+            <label for="gender">Gender</label>
+            <select name="gender" class="gender">
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="non-binary">Non-binary</option>
+              <option value="not-say">Prefer not to say</option>
+            </select>
+
+            <label for="dob">Date of birth</label>
+            <div name="day" class="date-of-birth">
+              <input type="number" value="01" name="day" class="dob" />
+
+              <select name="month" class="month">
+                <option value="jan">January</option>
+                <option value="feb">February</option>
+                <option value="mar">March</option>
+                <option value="apr">April</option>
+                <option value="may">May</option>
+                <option value="jun">June</option>
+                <option value="jul">JUly</option>
+                <option value="aug">August</option>
+                <option value="sep">September</option>
+                <option value="oct">October</option>
+                <option value="nov">November</option>
+                <option value="dec">December</option>
+              </select>
+              <input type="number" value="2023" name="year" class="dob" />
+            </div>
+
+            <label for="countries-codes">Country or region</label>
+            <select name="countries-codes" class="countries-codes"></select>
+
+            <div class="btns">
+              <a class="btn btn--cancel tertiary--1" href="#">Cancel </a>
+              <button class="btn btn--save tertiary--1">Save profile</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- PART -- 3 -->
+        <div class="changing--field pass-change hidden">
+          <h1 class="primary-text">Change your password</h1>
+
+          <form action="Post" class="form tertiary--1">
+            <label for="password1">Current password</label>
+            <div name="password1" class="password-state">
+              <input
+                type="password"
+                name="password1"
+                class="password password1"
+              />
+
+              <div>
+                <ion-icon class="eye-close" name="eye-off-outline"></ion-icon>
+                <ion-icon class="eye-open hidden" name="eye-outline"></ion-icon>
+              </div>
+            </div>
+
+            <label for="password2">New password</label>
+            <div name="password2" class="password-state">
+              <input
+                type="password"
+                name="password2"
+                class="password password2"
+              />
+
+              <div>
+                <ion-icon class="eye-close" name="eye-off-outline"></ion-icon>
+                <ion-icon class="eye-open hidden" name="eye-outline"></ion-icon>
+              </div>
+            </div>
+
+            <label for="password3">Repeat new password</label>
+            <div name="password3" class="password-state">
+              <input
+                type="password"
+                name="password3"
+                class="password password3"
+              />
+
+              <div>
+                <ion-icon class="eye-close" name="eye-off-outline"></ion-icon>
+                <ion-icon class="eye-open hidden" name="eye-outline"></ion-icon>
+              </div>
+            </div>
+
+            <div class="btns">
+              <a class="btn btn--cancel tertiary--1" href="#">Cancel </a>
+              <button class="btn btn--save btn--set-password tertiary--1">
+                Set new password
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- PART --4 -->
+        <div class="changing--field notification hidden">
+          <h1 class="primary-text">Notifications settings</h1>
+
+          <p class="intro-text">
+            Pick the notifications you want to get via push or email. These
+            preferences only apply to push and email.
+          </p>
+
+          <form action="Post" class="form tertiary--1 notifications">
+            <div class="text"></div>
+
+            <div class="mail-top">
+              <ion-icon name="mail-outline"></ion-icon>
+              <p>Email</p>
+            </div>
+            <div class="phone-top">
+              <ion-icon name="phone-portrait-outline"></ion-icon>
+              <p>Push</p>
+            </div>
+
+            <div class="text">
+              <p>Music & Artist Recommendations</p>
+              <p>
+                Music and new releases from artists you follow or might like
+              </p>
+            </div>
+
+            <input type="checkbox" class="check-music-mail" />
+            <input type="checkbox" class="check-music-phone" />
+
+            <div class="text">
+              <p>News & Cultural Moments</p>
+              <p>
+                Notifications related to news, society, and other notable
+                moments
+              </p>
+            </div>
+
+            <input type="checkbox" class="check-news-mail" />
+            <input type="checkbox" class="check-news-phone" />
+
+            <div class="text">
+              <p>Audiobooks</p>
+              <p>Audiobooks from authors you follow or might like</p>
+            </div>
+
+            <input type="checkbox" class="check-audiobooks-mail" />
+            <input type="checkbox" class="check-audiobooks-phone" />
+
+            <div class="text">
+              <p>In-person Concerts & Events</p>
+              <p>Updates about in-person events we think you’ll like</p>
+            </div>
+
+            <input type="checkbox" class="check-concerts-mail" />
+            <input type="checkbox" class="check-concerts-phone" />
+
+            <div class="text">
+              <p>Livestreams & Virtual Events</p>
+              <p>Updates about virtual events we think you'll like</p>
+            </div>
+
+            <input type="checkbox" class="check-livestream-mail" />
+            <input type="checkbox" class="check-livestream-phone" />
+
+            <div class="text">
+              <p>Features & Tips</p>
+              <p>News and tips to get the most out of your Spotify services</p>
+            </div>
+
+            <input type="checkbox" class="check-featers-mail" />
+            <input type="checkbox" class="check-featers-phone" />
+
+            <div class="text">
+              <p>Offers & Bundles</p>
+              <p>Special offers for Premium and our partners</p>
+            </div>
+
+            <input type="checkbox" class="check-offers-mail" />
+            <input type="checkbox" class="check-offers-phone" />
+
+            <div class="text">
+              <p>Music Experiences Made for You</p>
+              <p>Fun Spotify experiences based on your listening</p>
+            </div>
+
+            <input type="checkbox" class="check-experience-mail" />
+            <input type="checkbox" class="check-experience-phone" />
+
+            <div class="text">
+              <p>Artist & Creator Merchandise</p>
+              <p>The latest merch from your favorite creators</p>
+            </div>
+
+            <input type="checkbox" class="check-artist-mail" />
+            <input type="checkbox" class="check-artist-phone" />
+
+            <div class="text">
+              <p>Surveys</p>
+              <p>Feedback surveys to help us improve</p>
+            </div>
+
+            <input type="checkbox" class="check-survey-mail" />
+            <input type="checkbox" class="check-survey-phone" />
+
+            <div class="btns">
+              <a class="btn btn--cancel tertiary--1" href="#">Cancel </a>
+              <button class="btn btn--save tertiary--1">Save</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- PART --5 -->
+        <div class="changing--field privacy intro-text hidden">
+          <h1 class="primary-text">Privacy settings</h1>
+
+          <p class="text--1">
+            We want to make it easy for you to manage and understand your
+            Privacy Settings, so you can use the Spotify service in the way you
+            want.
+          </p>
+
+          <p class="text--1">The controls on this page enable you to:</p>
+          <ul>
+            <li>Control the tailored ads you see and hear on Spotify.</li>
+            <li>Control the Facebook data Spotify processes about you.</li>
+            <li>Download a copy of your Spotify personal data.</li>
+          </ul>
+
+          <h2 class="secondary-text">Manage your data</h2>
+
+          <div>
+            Additional data controls can be accessed from your device or
+            directly from the Spotify service. For more information about your
+            data rights, including how and why Spotify collects personal data,
+            and additional information on how you can manage this, please see
+            our <a href="#">Privacy Policy</a> or learn more in our Q&A for
+            <a href="#">data rights and privacy settings.</a>
+          </div>
+
+          <div class="ads">
+            <h2 class="secondary-text">Tailored ads</h2>
+            <p>
+              The tailored ads toggle below controls the tailored ads you
+              experience on Spotify's services, as well as Spotify's ads
+              targeted to you on other platforms.
+            </p>
+            <p>
+              While using the Spotify services, we may use certain personal data
+              about you in order to deliver advertising that is more relevant to
+              you. This data may include information collected about your use of
+              Spotify over time and/or data about your interests obtained from
+              third party advertising partners. If you opt out of receiving
+              tailored ads, we will stop using such data to show you tailored
+              ads, and we will also not share your information with third party
+              advertising partners for the purpose of facilitating tailored ads.
+              Note, however, that you may still receive ads based on your
+              Spotify registration information and your real-time usage of
+              Spotify, but the ads may be less relevant to you.
+            </p>
+            <p>
+              Additionally, Spotify may share limited data with other platforms
+              to market Spotify promotions, features, or new releases on those
+              other platforms. If you opt out of tailored advertising below, we
+              will not share your information with these platforms.
+            </p>
+
+            <label for="checkbox" class="grid">
+              <input type="checkbox" name="ads" class="ads" />
+              <p>Process my personal data for tailored ads.</p>
+            </label>
+          </div>
+
+          <div class="fb-data">
+            <h2 class="secondary-text">Facebook data</h2>
+
+            <p>
+              When you opt out of Spotify processing your Facebook data, we will
+              stop processing any Facebook data shared with Spotify except the
+              personal data that enables you to sign into Spotify using your
+              Facebook account. For more information, please see your
+              <a href="#">data rights and privacy settings.</a>
+            </p>
+
+            <label for="checkbox" class="grid">
+              <input type="checkbox" name="fb-data" class="fb-data" />
+              <p>Process my Facebook data</p>
+            </label>
+          </div>
+        </div>
+
+        <!-- PART --6 -->
+        <div class="changing--field credit-card hidden">
+          <div class="container-inner">
+            <h1 class="primary-text">Saved payment cards</h1>
+            <p class="description">
+              Manage your payment details for one-time purchases. To manage
+              payment details for your monthly subscription, go to
+              <a href="#">Account overview.</a>
+            </p>
+
+            <h2 class="secondary-text">
+              <p>My cards</p>
+              <ion-icon name="lock-closed-outline"></ion-icon>
+            </h2>
+
+            <form action="Post" class="form card-form tertiary--1">
+              <p class="intro-text">Credit or Debit card</p>
+              <div class="cards">
+                <img src="../imgs/profile/visa.svg" alt="visa logo" />
+                <img
+                  src="../imgs/profile/mastercard.svg"
+                  alt="Mastercard logo"
+                />
+              </div>
+
+              <h2 class="secondary-text">
+                <p>Payment details</p>
+                <ion-icon name="lock-closed-outline"></ion-icon>
+              </h2>
+
+              <label for="card-number" class="tertiary-text--1">
+                Card number
+              </label>
+
+              <input type="number" name="card-number" class="card-number" />
+
+              <div class="more-details grid">
+                <div>
+                  <label for="exp-date">Expiry date</label>
+                  <input
+                    type="number"
+                    placeholder="MM / YY"
+                    name="exp-date"
+                    class="exp-date"
+                  />
+                </div>
+                <div>
+                  <label for="sec-code">Security Code</label>
+                  <input
+                    type="number"
+                    placeholder="CVV"
+                    name="sec-code"
+                    class="sec-code"
+                  />
+                </div>
+              </div>
+
+              <label for="checkbox">
+                <input type="checkbox" name="checkbox" class="checkbox" />
+                <p class="check-box">
+                  <strong>
+                    Save card for future one-time purchases and subscriptions.
+                  </strong>
+                  This won't affect how you pay for existing subscriptions and
+                  can be managed anytime in your Account page.
+                </p>
+              </label>
+
+              <div class="btns">
+                <button class="btn btn--save btn--save-card tertiary--1">
+                  Save
+                </button>
+                <a class="btn btn--cancel tertiary--1" href="#">Cancel </a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
