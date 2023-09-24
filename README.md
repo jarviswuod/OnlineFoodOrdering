@@ -16,7 +16,7 @@ You could have a copy of the project locally in your computer
 1. Create an empty folder in your computer
 2. Move the folder where you need the project stored
 1. Open terminal then `cd project_name`
-2. Run `git clone git@github.com:dotjarvis/flexstream-movies.git` under `project_name`
+2. Run `git clone git@github.com:dotjarvis/classymusic.git` under `project_name`
 3. Open VS code app
 4. Navigate to the `project_name`
 5. Open terminal in your VS code - shortcut command `cntrl + backticks` or `cmd + backtick` in mackbook
