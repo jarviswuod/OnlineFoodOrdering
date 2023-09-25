@@ -72,7 +72,6 @@ header.addEventListener("click", function (e) {
     else if (navParent.classList.contains("header-favourite"))
       sectionFavourite.classList.remove("hidden");
     else if (navParent.classList.contains("settings-page-link"))
-      // sectionFavourite.classList.remove("hidden");
       window.location.href = "./setting/setting.html";
   }
 });
