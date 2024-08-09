@@ -1,14 +1,14 @@
 package com.jarvis.onlinefoodordering.config;
 
 import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
+import io.jsonwebtoken.Jwts;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import org.apache.tomcat.util.net.openssl.ciphers.Authentication;
+
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.GrantedAuthority;
@@ -35,8 +35,7 @@ public class JwtTokenValidator extends OncePerRequestFilter {
 
             try {
                 SecretKey key = Keys.hmacShaKeyFor(JwtConstant.SECRET_KEY.getBytes());
-//              Claims claims = Jwts.parseBuilder().setSigninKey(key).build().parseClaimJws(jwt).getBody();
-                Claims claims = (Claims) Jwts.parser().setSigningKey(key).build().parseClaimsJws(jwt).getBody();
+                Claims claims = Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(jwt).getBody();
 
                 String email = String.valueOf(claims.get("email"));
                 String authorities = String.valueOf((claims.get("authorities")));
