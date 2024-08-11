@@ -14,7 +14,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class IngredientsCategory {
+public class IngredientCategory {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
