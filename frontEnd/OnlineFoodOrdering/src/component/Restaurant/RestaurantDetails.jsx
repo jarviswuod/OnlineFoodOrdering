@@ -11,7 +11,6 @@ import {
 } from "@mui/material";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
-import { SystemUpdateOutlined } from "@mui/icons-material";
 import MenuCard from "./MenuCard";
 
 const categories = [

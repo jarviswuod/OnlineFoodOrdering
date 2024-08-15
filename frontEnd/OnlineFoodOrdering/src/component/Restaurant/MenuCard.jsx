@@ -19,6 +19,7 @@ const demo = [
   { category: "Vegetable", ingredients: ["Leffuce", "Tomato slices", "Onion"] },
   { category: "Condiment", ingredients: ["Ketchup"] },
 ];
+
 const MenuCard = () => {
   const handleCheckBoxChange = (value) => console.log(value);
   return (
@@ -70,7 +71,6 @@ const MenuCard = () => {
           </div>
         </form>
       </AccordionDetails>
-      <p>MenuCard</p>
     </Accordion>
   );
 };

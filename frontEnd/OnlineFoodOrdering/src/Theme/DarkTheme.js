@@ -1,4 +1,3 @@
-// const { createTheme } = required("@mui/material");
 import { createTheme } from "@mui/material/styles";
 
 export const darkTheme = createTheme({

@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 
-import CartItem from "./CartItem";
-import { Card, Divider, Button, Grid, TextField } from "@mui/material";
-import Typography from "@mui/material/Typography";
-import Modal from "@mui/material/Modal";
-import AddressCard from "./AddressCard";
 import Box from "@mui/material/Box";
-import { Formik, Form, Field, ErrorMessage } from "formik";
-
+import Modal from "@mui/material/Modal";
+import { Card, Divider, Button, Grid, TextField } from "@mui/material";
 import AddLocationAltIcon from "@mui/icons-material/AddLocationAlt";
+import { Formik, Form, Field } from "formik";
+
+import AddressCard from "./AddressCard";
+import CartItem from "./CartItem";
 
 const style = {
   position: "absolute",
@@ -31,6 +30,7 @@ const Cart = () => {
   const [open, setOpen] = useState(false);
 
   const handleOpenAddressModal = () => setOpen(true);
+
   const handleClose = () => setOpen(false);
   const createOrderUsingSelectedAddress = () => {};
 
@@ -97,7 +97,7 @@ const Cart = () => {
                   <Button
                     variant="outlined"
                     fullWidth
-                    onClick={() => handleOpenAddressModal}
+                    onClick={handleOpenAddressModal}
                   >
                     Add
                   </Button>
@@ -123,7 +123,7 @@ const Cart = () => {
                     name="StreetAddress"
                     label="Street Address"
                     fullWidth
-                    variant="outline"
+                    variant="outlined"
                   />
                 </Grid>
 
@@ -137,7 +137,7 @@ const Cart = () => {
                     name="city"
                     label="city"
                     fullWidth
-                    variant="outline"
+                    variant="outlined"
                   />
                 </Grid>
 
@@ -147,7 +147,7 @@ const Cart = () => {
                     name="pincode"
                     label="pincode"
                     fullWidth
-                    variant="outline"
+                    variant="outlined"
                   />
                 </Grid>
 
