@@ -31,7 +31,17 @@ const ProfileNavigation = ({ open, handleClose }) => {
         anchor="left"
         sx={{ zIndex: 1 }}
       >
-        <div className="w-[50vw] lg:w-[20vw] h-[100vh] flex flex-col justify-center text-xl gap-8 pt-16"></div>
+        <div className="w-[50vw] lg:w-[20vw] h-[100vh] flex flex-col justify-center text-xl gap-8 pt-16">
+          {menu.map((item) => (
+            <>
+              <div className="px-5 flex items-center space-x-5 cursor-pointer">
+                {item.icon}
+                <span>{item.title}</span>
+              </div>
+              {i != menu.length - 1 && <Divider />}
+            </>
+          ))}
+        </div>
       </Drawer>
     </div>
   );
