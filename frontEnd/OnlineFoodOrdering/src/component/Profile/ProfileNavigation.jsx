@@ -6,8 +6,8 @@ import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
 import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
 import EventIcon from "@mui/icons-material/Event";
 import LogoutIcon from "@mui/icons-material/Logout";
-import { AddReaction } from "@mui/icons-material";
-import { Drawer, useMediaQuery } from "@mui/material";
+import { AddReaction, Key } from "@mui/icons-material";
+import { Divider, Drawer, useMediaQuery } from "@mui/material";
 import zIndex from "@mui/material/styles/zIndex";
 
 const menu = [
@@ -29,17 +29,17 @@ const ProfileNavigation = ({ open, handleClose }) => {
         onClose={handleClose}
         open={open}
         anchor="left"
-        sx={{ zIndex: 1 }}
+        sx={{ zIndex: -1, position: "sticky" }}
       >
-        <div className="w-[50vw] lg:w-[20vw] h-[100vh] flex flex-col justify-center text-xl gap-8 pt-16">
-          {menu.map((item) => (
-            <>
+        <div className="w-[50vw] lg:w-[20vw] h-[100vh] flex flex-col justify-center text-xl gap-8">
+          {menu.map((item, i) => (
+            <div key={i}>
               <div className="px-5 flex items-center space-x-5 cursor-pointer">
                 {item.icon}
                 <span>{item.title}</span>
               </div>
               {i != menu.length - 1 && <Divider />}
-            </>
+            </div>
           ))}
         </div>
       </Drawer>
