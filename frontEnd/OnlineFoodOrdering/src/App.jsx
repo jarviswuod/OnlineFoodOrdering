@@ -9,17 +9,19 @@ import Profile from "./component/Profile/Profile";
 import { ThemeProvider } from "@emotion/react";
 
 import { CssBaseline } from "@mui/material";
+import CustomerRouter from "./Routers/CustomerRouter";
 
 function App() {
   return (
     <div>
       <ThemeProvider theme={darkTheme}>
         <CssBaseline />
-        <Navbar />
+        {/* <Navbar /> */}
         {/* <Home /> */}
         {/* <RestaurantDetails /> */}
         {/* <Cart /> */}
-        <Profile />
+        {/* <Profile /> */}
+        <CustomerRouter />
       </ThemeProvider>
     </div>
   );
