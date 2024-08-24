@@ -14,12 +14,12 @@ const Profile = () => {
       <div className="sticky h-[80vh] lg:w-[20%]">
         <ProfileNavigation open={openSideBar} />
       </div>
-      <div className="lg:w-[80%]">
+      <div className="lg:w-[80%] pt-4">
         <Routes>
           <Route path="/" element={<UserProfile />} />
           <Route path="orders/" element={<Orders />} />
           <Route path="/address" element={<Address />} />
-          <Route path="/favourite" element={<Favourite />} />
+          <Route path="/favorites" element={<Favourite />} />
           <Route path="/events" element={<Events />} />
         </Routes>
       </div>
