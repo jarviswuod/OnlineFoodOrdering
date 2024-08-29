@@ -45,15 +45,17 @@ export const loginUser = (reqData) => async (dispatch) => {
       reqData.userData
     );
 
-    if (data.jwt) localStorage.setItem("jwt", data.jwt);
-    console.log(localStorage);
-    if (data.role === "ROLE_RESTAURANT_OWNER") {
-      reqData.navigate("/admin/restuarant");
-    } else {
-      reqData.navigate("/");
+    if (data.jwt) {
+      localStorage.setItem("jwt", data.jwt);
+      console.log(localStorage);
+      dispatch({ type: LOGIN_SUCCESS, payload: data.jwt });
+      if (data.role === "ROLE_RESTAURANT_OWNER") {
+        reqData.navigate("/admin/restuarant");
+      } else {
+        reqData.navigate("/");
+      }
+      console.log("login success", data);
     }
-    dispatch({ type: LOGIN_SUCCESS, payload: data.jwt });
-    console.log("login success", data);
   } catch (error) {
     dispatch({ type: LOGIN_FAILURE, payload: error });
     console.error(error);

@@ -9,9 +9,11 @@ import {
   GET_USER_SUCCESS,
   LOGIN_FAILURE,
   LOGIN_REQUEST,
+  LOGIN_SUCCESS,
   LOGOUT,
   REGISTER_FAILURE,
   REGISTER_REQUEST,
+  REGISTER_SUCCESS,
 } from "./ActionType";
 
 const initialState = {
@@ -31,8 +33,8 @@ export const authReducer = (state = initialState, action) => {
     case ADD_TO_FAVOURITE_REQUEST:
       return { ...state, isLoading: true, error: null, success: null };
 
-    case REGISTER_REQUEST:
-    case LOGIN_REQUEST:
+    case REGISTER_SUCCESS:
+    case LOGIN_SUCCESS:
       return {
         ...state,
         isLoading: false,
