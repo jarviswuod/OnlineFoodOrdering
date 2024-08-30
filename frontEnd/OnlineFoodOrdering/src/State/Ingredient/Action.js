@@ -25,7 +25,7 @@ export const getRestaurantIngredients = ({ restaurantId, jwt }) => {
         `/api/admin/ingredients/restaurant/${restaurantId}`,
         {
           headers: {
-            Authrorization: `Bearer ${jwt}`,
+            Authorization: `Bearer ${jwt}`,
           },
         }
       );
@@ -47,7 +47,7 @@ export const createIngredient = ({ ingredientData, jwt }) => {
         ingredientData,
         {
           headers: {
-            Authrorization: `Bearer ${jwt}`,
+            Authorization: `Bearer ${jwt}`,
           },
         }
       );
@@ -69,7 +69,7 @@ export const createIngredientCategory = ({ catgoryData, jwt }) => {
         catgoryData,
         {
           headers: {
-            Authrorization: `Bearer ${jwt}`,
+            Authorization: `Bearer ${jwt}`,
           },
         }
       );
@@ -90,7 +90,7 @@ export const getRestaurantIngredientCategory = ({ restaurantId, jwt }) => {
         `/api/admin/ingredients/restaurant/${restaurantId}/category`,
         {
           headers: {
-            Authrorization: `Bearer ${jwt}`,
+            Authorization: `Bearer ${jwt}`,
           },
         }
       );
@@ -112,7 +112,7 @@ export const updateIngredientStock = ({ ingredientId, jwt }) => {
         {},
         {
           headers: {
-            Authrorization: `Bearer ${jwt}`,
+            Authorization: `Bearer ${jwt}`,
           },
         }
       );

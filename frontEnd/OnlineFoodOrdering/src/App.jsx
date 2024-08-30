@@ -27,11 +27,6 @@ function App() {
     <div>
       <ThemeProvider theme={darkTheme}>
         <CssBaseline />
-        {/* <Navbar /> */}
-        {/* <Home /> */}
-        {/* <RestaurantDetails /> */}
-        {/* <Cart /> */}
-        {/* <Profile /> */}
         <CustomerRouter />
       </ThemeProvider>
     </div>

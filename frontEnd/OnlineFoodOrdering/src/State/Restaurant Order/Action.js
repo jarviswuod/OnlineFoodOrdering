@@ -17,7 +17,7 @@ export const updateOrderStatus = ({ orderId, orderStatus, jwt }) => {
         {},
         {
           headers: {
-            Authrorization: `Bearer ${jwt}`,
+            Authorization: `Bearer ${jwt}`,
           },
         }
       );
@@ -39,7 +39,7 @@ export const fetchRestaurantOrders = ({ restaurantId, orderStatus, jwt }) => {
         {
           params: { order_status: orderStatus },
           headers: {
-            Authrorization: `Bearer ${jwt}`,
+            Authorization: `Bearer ${jwt}`,
           },
         }
       );

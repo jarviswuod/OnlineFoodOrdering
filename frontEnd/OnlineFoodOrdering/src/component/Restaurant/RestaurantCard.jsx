@@ -3,8 +3,24 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { addToFavourite } from "../../State/Authentication/Action";
+import { isPresentInFavourites } from "../../config/logic";
 
-const RestaurantCard = () => {
+const RestaurantCard = ({ item }) => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const jwt = localStorage.getItem("jwt");
+
+  const { auth } = useSelector((store) => store);
+
+  const handleAddToFavourite = () => {
+    dispatch(addToFavourite({ restaurantId: item.id, jwt }));
+  };
+  const handleNavigateToRestaurant = () => {
+    navigate(`/restaurant/${item.address.city}/${item.name}/${item.id}`);
+  };
   return (
     <Card className="mt-5 w-[18rem]">
       <div
@@ -12,26 +28,33 @@ const RestaurantCard = () => {
       >
         <img
           className="w-full h-[10rem] rounded-t-md object-cover"
-          src="http://res.cloudinary.com/dcpesbd8q/image/upload/v1707802815/ux3xq93xzfbqhtudigv2.jpg"
+          src={item.images[0]}
           alt=""
         />
         <Chip
           size="small"
           className="absolute top-2 left-2"
-          color={true ? "success" : "error"}
-          label={true ? "open" : "close"}
+          color={item.open ? "success" : "error"}
+          label={item.open ? "open" : "close"}
         />
       </div>
       <div className="p-4 textPart lg:flex w-full justify-between">
         <div className="space-y-1">
-          <p className="font-semibold text-lg">Indian Fast Food</p>
-          <p className="text-gray-500 text-sm">
-            Craving it all? Dive into our gbal flav...
+          <p
+            onClick={handleNavigateToRestaurant}
+            className="font-semibold text-lg cursor-pointer"
+          >
+            {item.name}
           </p>
+          <p className="text-gray-500 text-sm">{item.description}</p>
         </div>
         <div>
-          <IconButton>
-            {true ? <FavoriteIcon /> : <FavoriteBorderIcon />}
+          <IconButton onClick={handleAddToFavourite}>
+            {isPresentInFavourites(auth.favorites, item) ? (
+              <FavoriteIcon />
+            ) : (
+              <FavoriteBorderIcon />
+            )}
           </IconButton>
         </div>
       </div>

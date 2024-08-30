@@ -14,7 +14,7 @@ export const createOrder = (reqData) => {
     try {
       const { data } = await api.post(`/api/order`, reqData.order, {
         headers: {
-          Authrorization: `Bearer ${reqData.jwt}`,
+          Authorization: `Bearer ${reqData.jwt}`,
         },
       });
       dispatch({ type: CREATE_ORDER_SUCCESS, payload: data });
@@ -32,7 +32,7 @@ export const getUsersOrders = (jwt) => {
     try {
       const { data } = await api.get(`/api/order/user`, {
         headers: {
-          Authrorization: `Bearer ${jwt}`,
+          Authorization: `Bearer ${jwt}`,
         },
       });
       dispatch({ type: GET_USERS_ORDERS_SUCCESS, payload: data });

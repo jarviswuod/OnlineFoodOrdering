@@ -93,6 +93,7 @@ export const addToFavourite =
           },
         }
       );
+      console.log("data ", data);
 
       dispatch({ type: ADD_TO_FAVOURITE_SUCCESS, payload: data });
       console.log("Aded to favourite", data);

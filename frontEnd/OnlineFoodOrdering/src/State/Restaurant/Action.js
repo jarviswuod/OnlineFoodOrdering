@@ -46,11 +46,10 @@ export const getAllRestaurants = (token) => {
     try {
       const { data } = await api.get("/api/restaurants", {
         headers: {
-          Authrorization: `Bearer ${token}`,
+          Authorization: `Bearer ${token}`,
         },
       });
       dispatch({ type: GET_ALL_RESTAURANTS_SUCCESS, payload: data });
-      console.log("all restaurants ", data);
     } catch (error) {
       console.error("catch error ", error);
       dispatch({ type: GET_ALL_RESTAURANTS_FAILURE, payload: error });
@@ -62,14 +61,11 @@ export const getRestaurantById = (reqData) => {
   return async (dispatch) => {
     dispatch({ type: GET_RESTAURANT_BY_ID_REQUEST });
     try {
-      const response = await api.get(
-        `/api/restaurants/${reqData.restaurantId}`,
-        {
-          headers: {
-            Authrorization: `Bearer ${reqData.jwt}`,
-          },
-        }
-      );
+      const response = await api.get(`/api/restaurants/${reqData.id}`, {
+        headers: {
+          Authorization: `Bearer ${reqData.jwt}`,
+        },
+      });
       dispatch({ type: GET_RESTAURANT_BY_ID_SUCCESS, payload: response.data });
       console.log("Restaurant by id", response.data);
     } catch (error) {
@@ -85,7 +81,7 @@ export const getRestaurantByUserId = (jwt) => {
     try {
       const { data } = await api.get(`/api/admin/restaurants/user`, {
         headers: {
-          Authrorization: `Bearer ${jwt}`,
+          Authorization: `Bearer ${jwt}`,
         },
       });
       dispatch({ type: GET_RESTAURANT_BY_USER_ID_SUCCESS, payload: data });
@@ -107,7 +103,7 @@ export const createRestaurant = (reqData) => {
     try {
       const { data } = await api.post(`/api/admin/restaurants`, reqData.data, {
         headers: {
-          Authrorization: `Bearer ${reqData.token}`,
+          Authorization: `Bearer ${reqData.token}`,
         },
       });
       dispatch({ type: CREATE_RESTAURANT_SUCCESS, payload: data });
@@ -132,7 +128,7 @@ export const updateRestaurant = ({ restaurantId, restaurantData, jwt }) => {
         restaurantData,
         {
           headers: {
-            Authrorization: `Bearer ${jwt}`,
+            Authorization: `Bearer ${jwt}`,
           },
         }
       );
@@ -154,7 +150,7 @@ export const deleteRestaurant = ({ restaurantId, jwt }) => {
     try {
       const res = await api.delete(`/api/admin/restaurants/${restaurantId}`, {
         headers: {
-          Authrorization: `Bearer ${jwt}`,
+          Authorization: `Bearer ${jwt}`,
         },
       });
       dispatch({ type: DELETE_RESTAURANT_SUCCESS, payload: res.data });
@@ -178,7 +174,7 @@ export const updateRestaurantStatus = ({ restaurantId, jwt }) => {
         {},
         {
           headers: {
-            Authrorization: `Bearer ${jwt}`,
+            Authorization: `Bearer ${jwt}`,
           },
         }
       );
@@ -203,7 +199,7 @@ export const createEvent = ({ data, restaurantId, jwt }) => {
         data,
         {
           headers: {
-            Authrorization: `Bearer ${jwt}`,
+            Authorization: `Bearer ${jwt}`,
           },
         }
       );
@@ -225,7 +221,7 @@ export const getAllEvents = ({ jwt }) => {
     try {
       const res = await api.get(`/api/events`, {
         headers: {
-          Authrorization: `Bearer ${jwt}`,
+          Authorization: `Bearer ${jwt}`,
         },
       });
       dispatch({ type: GET_ALL_EVENTS_SUCCESS, payload: res.data });
@@ -246,7 +242,7 @@ export const deleteEvent = ({ eventId, jwt }) => {
     try {
       const res = await api.delete(`/api/admin/events/${eventId}`, {
         headers: {
-          Authrorization: `Bearer ${jwt}`,
+          Authorization: `Bearer ${jwt}`,
         },
       });
       dispatch({ type: DELETE_EVENTS_SUCCESS, payload: res.data });
@@ -269,7 +265,7 @@ export const getRestaurantsEvents = ({ restaurantId, jwt }) => {
         `/api/admin/events/restaurants/${restaurantId}`,
         {
           headers: {
-            Authrorization: `Bearer ${jwt}`,
+            Authorization: `Bearer ${jwt}`,
           },
         }
       );
@@ -291,7 +287,7 @@ export const createCategory = ({ reqData, jwt }) => {
     try {
       const res = await api.post(`/api/admin/category/`, reqData, {
         headers: {
-          Authrorization: `Bearer ${jwt}`,
+          Authorization: `Bearer ${jwt}`,
         },
       });
       dispatch({ type: CREATE_CATEGORY_SUCCESS, payload: res.data });
@@ -312,7 +308,7 @@ export const getRestaurantsCategory = ({ jwt, restaurantId }) => {
     try {
       const res = await api.get(`/api/category/restaurant/${restaurantId}`, {
         headers: {
-          Authrorization: `Bearer ${jwt}`,
+          Authorization: `Bearer ${jwt}`,
         },
       });
       dispatch({ type: GET_RESTAURANTS_CATEGORY_SUCCESS, payload: res.data });

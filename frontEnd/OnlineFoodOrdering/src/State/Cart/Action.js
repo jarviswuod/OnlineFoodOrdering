@@ -26,7 +26,7 @@ export const findCart = (jwt) => {
     try {
       const { data } = await api.get(`/api/cart`, {
         headers: {
-          Authrorization: `Bearer ${jwt}`,
+          Authorization: `Bearer ${jwt}`,
         },
       });
       dispatch({ type: FIND_CART_SUCCESS, payload: data });
@@ -44,7 +44,7 @@ export const getAllCartItems = (reqData) => {
     try {
       const { data } = await api.get(`/api/carts/${reqData.cartId}/items`, {
         headers: {
-          Authrorization: `Bearer ${reqData.jwt}`,
+          Authorization: `Bearer ${reqData.jwt}`,
         },
       });
       dispatch({ type: GET_ALL_CART_ITEM_SUCCESS, payload: data });
@@ -62,7 +62,7 @@ export const addItemToCart = (reqData) => {
     try {
       const { data } = await api.put(`/api/cart/add`, reqData.cartItem, {
         headers: {
-          Authrorization: `Bearer ${reqData.jwt}`,
+          Authorization: `Bearer ${reqData.jwt}`,
         },
       });
       dispatch({ type: ADD_CART_ITEM_SUCCESS, payload: data });
@@ -80,7 +80,7 @@ export const updateCartItem = (reqData) => {
     try {
       const { data } = await api.put(`/api/cart-item/update`, reqData.data, {
         headers: {
-          Authrorization: `Bearer ${reqData.jwt}`,
+          Authorization: `Bearer ${reqData.jwt}`,
         },
       });
       dispatch({ type: UPDATE_CART_ITEM_SUCCESS, payload: data });
@@ -98,7 +98,7 @@ export const removeCartItem = ({ cartItemId, jwt }) => {
     try {
       const { data } = await api.delete(`/api/cart-item/${cartItemId}/remove`, {
         headers: {
-          Authrorization: `Bearer ${jwt}`,
+          Authorization: `Bearer ${jwt}`,
         },
       });
       dispatch({ type: REMOVE_CART_ITEM_SUCCESS, payload: data });
@@ -119,7 +119,7 @@ export const clearCart = (jwt) => {
         {},
         {
           headers: {
-            Authrorization: `Bearer ${jwt}`,
+            Authorization: `Bearer ${jwt}`,
           },
         }
       );

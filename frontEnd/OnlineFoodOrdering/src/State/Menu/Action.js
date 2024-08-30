@@ -22,7 +22,7 @@ export const createMenuItem = ({ menu, jwt }) => {
     try {
       const { data } = await api.post(`/api/admin/food`, menu, {
         headers: {
-          Authrorization: `Bearer ${jwt}`,
+          Authorization: `Bearer ${jwt}`,
         },
       });
       dispatch({ type: CREATE_MENU_ITEM_SUCCESS, payload: data });
@@ -42,7 +42,7 @@ export const getMenuItemsByRestaurantId = (reqData) => {
         `/api/food/restaurant/${reqData.restaurantId}?vegetarian=${reqData.vegetarian}&nonveg=${reqData.nonveg}&seasonal=${reqData.seasonal}&food_category=${reqData.foodCategory}`,
         {
           headers: {
-            Authrorization: `Bearer ${reqData.jwt}`,
+            Authorization: `Bearer ${reqData.jwt}`,
           },
         }
       );
@@ -67,7 +67,7 @@ export const searchMenuItem = ({ keyword, jwt }) => {
     try {
       const { data } = await api.get(`/api/food/search?name=${keyword}`, {
         headers: {
-          Authrorization: `Bearer ${jwt}`,
+          Authorization: `Bearer ${jwt}`,
         },
       });
       dispatch({ type: SEARCH_MENU_ITEM_SUCCESS, payload: data });
@@ -87,7 +87,7 @@ export const searchMenuItem = ({ keyword, jwt }) => {
 //         `/api/food/restaurant/${reqData.restaurantId}`,
 //         {
 //           headers: {
-//             Authrorization: `Bearer ${reqData.jwt}`,
+//             Authorization: `Bearer ${reqData.jwt}`,
 //           },
 //         }
 //       );
@@ -115,7 +115,7 @@ export const updateMenuItemAvailability = ({ foodId, jwt }) => {
         {},
         {
           headers: {
-            Authrorization: `Bearer ${jwt}`,
+            Authorization: `Bearer ${jwt}`,
           },
         }
       );
@@ -140,7 +140,7 @@ export const deleteFood = ({ foodId, jwt }) => {
     try {
       const { data } = await api.delete(`/api/admin/food/${foodId}`, {
         headers: {
-          Authrorization: `Bearer ${jwt}`,
+          Authorization: `Bearer ${jwt}`,
         },
       });
       dispatch({

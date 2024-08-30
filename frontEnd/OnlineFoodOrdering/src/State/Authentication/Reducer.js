@@ -21,7 +21,7 @@ const initialState = {
   isLoading: false,
   error: null,
   jwt: null,
-  favourites: [],
+  favorites: [],
   success: null,
 };
 
@@ -46,6 +46,7 @@ export const authReducer = (state = initialState, action) => {
         ...state,
         isLoading: false,
         user: action.payload,
+        favorites: action.payload.favorites,
       };
 
     case LOGOUT:
@@ -56,9 +57,9 @@ export const authReducer = (state = initialState, action) => {
         ...state,
         isLoading: false,
         error: null,
-        favourites: isPresentInFavourites(state.favourites, action.payload)
-          ? state.favourites.filter((item) => item.id !== action.payload.id)
-          : [action.payload, ...state.favourites],
+        favorites: isPresentInFavourites(state.favorites, action.payload)
+          ? state.favorites.filter((item) => item.id !== action.payload.id)
+          : [action.payload, ...state.favorites],
       };
 
     case REGISTER_FAILURE:
