@@ -6,7 +6,7 @@ import lombok.Data;
 @Data
 public class AuthResponse {
 
-    private String jtw;
+    private String jwt;
 
     private String message;
 

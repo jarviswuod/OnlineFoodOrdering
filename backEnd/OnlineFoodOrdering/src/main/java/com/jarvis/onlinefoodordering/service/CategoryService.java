@@ -30,8 +30,7 @@ public class CategoryService {
 
 
     public List<Category> findCategoryByRestaurantId(Long restaurantId) throws Exception {
-        Restaurant restaurant = restaurantService.getRestaurantByUserId(restaurantId);
-        return categoryRepository.findByRestaurantId(restaurant.getId());
+        return categoryRepository.findByRestaurantId(restaurantId);
     }
 
     public Category findCategoryById(Long id) throws Exception {
@@ -39,7 +38,6 @@ public class CategoryService {
 
         if (category.isEmpty())
             throw new Exception("Category not found");
-
         return category.get();
     }
 }
