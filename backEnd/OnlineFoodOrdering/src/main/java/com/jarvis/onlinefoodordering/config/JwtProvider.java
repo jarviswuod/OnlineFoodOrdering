@@ -13,6 +13,7 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
+
 @Configuration
 public class JwtProvider {
 
@@ -23,7 +24,7 @@ public class JwtProvider {
         String roles = populateAuthorities(authorities);
 
         String jwt = Jwts.builder().setIssuedAt(new Date())
-                .setExpiration((new Date(new Date().getTime() + 86400000)))
+                .setExpiration((new Date(new Date().getTime() + 180L * 24 * 60 * 60 * 1000)))
                 .claim("email", auth.getName())
                 .claim("authorities", roles)
                 .signWith(key)
